@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./imagenes/logo.svg" type="image/x-icon">
+    <title>Challenge - Encriptador</title>
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <!-- My CSS and JS-->
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <h1><img class="logo" src="./imagenes/logo.svg" alt="logo de alura"></h1>
+    </header>
+    <main class="main">
+
+      <section class="hero">
+        <textarea class="hero-textarea" name="" id="" cols="30" rows="10" placeholder="Ingrese el texto aqui" autofocus required></textarea>
+        <small class="hero-advice">Solo letras minúsculas y sin acento.</small>
+
+        <div class="hero-buttons">
+          <button class="button-encrypt">Encriptar</button>
+          <button class="button-decrypt">Desencriptar</button>
+        </div>
+      </section>
+
+      
+    </main>
+
+    <aside class="message">
+
+      <div class="noresult">
+        <img class="noresult-img" src="./imagenes/person-looking-diamond.svg" alt="a person looking at a diamond with a magnifying glass">
+        <h2 class="noresult-title">Ningún mensaje fue encontrado</h2>
+        <p class="noresult-text">Ingresa el texto que desees encriptar o desencriptar.</p>
+      </div>
+
+      <div class="result hidden">
+        <p class="result-text"></p>
+        <button class="button-copy">Copiar</button>
+      </div>
+
+    </aside>
+  </body>
+</html>
