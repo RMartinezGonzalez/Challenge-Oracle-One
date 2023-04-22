@@ -51,6 +51,9 @@ button:active {
   --button-background: var(--clr-neutral-100);
   --button-border: var(--clr-primary-500);
 }
+::selection {
+  background: var(--clr-neutral-400);
+}
 /* Duplicate for more specificity */
 .hidden.hidden {
   display: none;
@@ -102,6 +105,10 @@ body {
 .hero-textarea:focus {
   outline: 1px solid var(--clr-primary-100);
 }
+.hero-textarea::selection {
+  background: hsl(var(--clr-primary-500));
+  color: hsl(var(--clr-neutral-100));
+}
 .hero-advice {
   color: hsl(var(--clr-primary-500));
   font-size: 12px;
@@ -143,6 +150,11 @@ body {
   font-weight: var(--fw-bold);
   color: var(--clr-neutral-600);
 }
+.noresult-title::selection,
+.noresult-text::selection {
+  background: var(--clr-neutral-400);
+  color: hsl(var(--clr-neutral-100));
+}
 .noresult-text {
   font-size: 16px;
   color: var(--clr-neutral-400);
@@ -158,6 +170,10 @@ body {
   text-align: start;
   overflow-y: auto;
   max-height: calc(35rem - 4rem - 67px - 2rem);
+}
+.result-text::selection {
+  background: var(--clr-neutral-400);
+  color: hsl(var(--clr-neutral-100));
 }
 
 /* Scroll */
