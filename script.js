@@ -12,114 +12,116 @@ btnDecrypt.onclick = showMessageDecrypt;
 btnCopy.onclick = copy;
 
 function showMessageEncrypt() {
-    textContent = textarea.value.toLowerCase();
-    valid();
-    result.textContent = encrypt(textContent);
-    // textarea.value = '';
-    changeClasses();
+  textContent = textarea.value.toLowerCase();
+  valid();
+  result.textContent = encrypt(textContent);
+  // textarea.value = '';
+  changeClasses();
 }
 
 function showMessageDecrypt() {
-    textContent = textarea.value.toLowerCase();
-    valid();
-    result.textContent = decrypt(textContent);
-    // textarea.value = '';
-    changeClasses();
+  textContent = textarea.value.toLowerCase();
+  valid();
+  result.textContent = decrypt(textContent);
+  // textarea.value = '';
+  changeClasses();
 }
 
 function valid() {
-    if (textContent.trim().length === 0) {
-        alert('Ingrese un texto');
-    }
-    else if (textContent.match((/[0-9áéíóú]/g))) {
-        alert('Ingrese un texto valido');
-        textContent = '';
-    }
-    else {
-        validText = true;
-    }
+  if (textContent.trim().length === 0) {
+    alert('Ingrese un texto');
+  }
+  else if (textContent.match((/[0-9áéíóú]/g))) {
+    alert('Ingrese un texto valido');
+    textContent = '';
+  }
+  else {
+    validText = true;
+  }
 }
 
 function encrypt(text) {
-    let textEncrypt = '';
+  let textEncrypt = '';
 
-    if (validText) {
+  if (validText) {
 
-        for (let i = 0; i < text.length; i++) {
-            
-            let replaced = false;
-            for (let j = 0; j < keys.length; j++) {
+    for (let i = 0; i < text.length; i++) {
+        
+      let replaced = false;
+      for (let j = 0; j < keys.length; j++) {
 
-                if (text[i] === keys[j][0]) {
-                    textEncrypt += keys[j][1];
-                    replaced = true;
-                    break;
-                }
-            }
-
-            if (!replaced) {
-                textEncrypt += text[i];
-            }
+        if (text[i] === keys[j][0]) {
+          textEncrypt += keys[j][1];
+          replaced = true;
+          break;
         }
-    }
+      }
 
-    return textEncrypt;
+      if (!replaced) {
+        textEncrypt += text[i];
+      }
+    }
+  }
+
+  return textEncrypt;
 }
 
 function decrypt(text) {
 
-    let decryptedText = '';
-    let index = 0;
+  let decryptedText = '';
+  let index = 0;
 
-    while (index < text.length) {
+  while (index < text.length) {
 
-        let replaced = false;
+    let replaced = false;
+    
+    for (let i = 0; i < keys.length; i++) {
         
-        for (let i = 0; i < keys.length; i++) {
-            
-            let key = keys[i];
-            let keyChar = key[0];
-            let keySubstring = key[1];
+      let key = keys[i];
+      let keyChar = key[0];
+      let keySubstring = key[1];
 
-            if (text.substring(index).startsWith(keySubstring)) {
+      if (text.substring(index).startsWith(keySubstring)) {
 
-                decryptedText += keyChar;
-                index += keySubstring.length;
-                replaced = true;
-                break;
-            }
-        }
-
-        if (!replaced) {
-            decryptedText += text[index];
-            index++;
-        }
+        decryptedText += keyChar;
+        index += keySubstring.length;
+        replaced = true;
+        break;
+      }
     }
 
-    return decryptedText;
+    if (!replaced) {
+      decryptedText += text[index];
+      index++;
+    }
+  }
+
+  return decryptedText;
 }
 
 function copy() {
-    navigator.clipboard.writeText(result.textContent);
-    btnCopy.textContent = 'Copiado con éxito!';
-    setTimeout(changeCopyButton, 2000);
-    textarea.value = '';
+  navigator.clipboard.writeText(result.textContent);
+  btnCopy.textContent = 'Copiado con éxito!';
+  setTimeout(changeCopyButton, 2000);
+  textarea.value = '';
 }
 
 function changeCopyButton() {
-    btnCopy.textContent = 'Copiar';
+  btnCopy.textContent = 'Copiar';
 }
 
 function changeClasses() {
-    let noresult = document.querySelector('.noresult')
-    let result = document.querySelector('.result');
-    let resultText = document.querySelector('.result-text');
-    if (resultText.textContent.trim().length === 0) {
-        result.classList.add('hidden');
-        noresult.classList.remove('hidden');
-    }
-    else {
-        result.classList.remove('hidden');
-        noresult.classList.add('hidden');
-    }
+
+  let noresult = document.querySelector('.noresult')
+  let result = document.querySelector('.result');
+  let resultText = document.querySelector('.result-text');
+
+  if (resultText.textContent.trim().length === 0) {
+    result.classList.add('hidden');
+    noresult.classList.remove('hidden');
+  }
+  else {
+    result.classList.remove('hidden');
+    noresult.classList.add('hidden');
+  }
 }
