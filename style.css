@@ -278,3 +278,10 @@ body {
     max-height: 1200px;
   }
 }
+
+/* Spacing with much height */
+@media screen and (min-height: 960px) {
+  body {
+    align-content: center;
+  }
+}
