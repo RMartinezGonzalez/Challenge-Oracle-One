@@ -102,12 +102,10 @@ function decrypt(text) {
 function copy() {
   navigator.clipboard.writeText(result.textContent);
   btnCopy.textContent = 'Copiado con éxito!';
-  setTimeout(changeCopyButton, 2000);
+  setTimeout(() => {
+    btnCopy.textContent = 'Copiar';
+  }, 2000);
   textarea.value = '';
-}
-
-function changeCopyButton() {
-  btnCopy.textContent = 'Copiar';
 }
 
 function changeClasses() {
