@@ -1,11 +1,11 @@
 :root {
-  --clr-primary-100: #dfffe6;
-  --clr-primary-500: 145, 26%, 58%;
+  --clr-primary-100: #aff2ea;
+  --clr-primary-500: 166, 82%, 28%; /* hsl */
 
-  --clr-neutral-100: 175, 94%, 88%;
-  --clr-neutral-200: 212, 15%, 34%;
-  --clr-neutral-400: #303E4D;
-  --clr-neutral-600: #2C3849;
+  --clr-neutral-100: 173, 72%, 82%; /* hsl */
+  --clr-neutral-200: 0, 0%, 8%; /* hsl */
+  --clr-neutral-400: #1a1a1a;
+  --clr-neutral-600: #000;
 
   --ff-base: 'Inter', sans-serif;
 
@@ -72,7 +72,7 @@ body {
 /* Header */
 .logo {
   width: 2rem;
-  fill: var(--clr-neutral-600);
+  fill: hsl(var(--clr-primary-500));
 }
 
 /* Main */
@@ -253,11 +253,12 @@ body {
 .linkedin,
 .github {
   fill: hsl(var(--clr-primary-500));
-  transition: fill .2s ease-in-out;
+  transition: fill .2s ease-in-out, transform .2s ease-in-out;
 }
 .linkedin:hover,
 .github:hover {
   fill: hsl(var(--clr-neutral-100));
+  transform: translateY(-2px);
 }
 
 /* Tablet */
