@@ -11,6 +11,12 @@ btnEncrypt.onclick = showMessageEncrypt;
 btnDecrypt.onclick = showMessageDecrypt;
 btnCopy.onclick = copy;
 
+// const hero = document.querySelector('.hero');
+
+// hero.addEventListener('submit', (event) => {
+//   event.preventDefault();
+// });
+
 function showMessageEncrypt() {
   textContent = textarea.value.toLowerCase();
   valid();

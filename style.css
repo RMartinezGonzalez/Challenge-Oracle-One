@@ -1,5 +1,5 @@
 :root {
-  --clr-primary-100: #aff2ea;
+  --clr-primary-100: #2a2e2d;
   --clr-primary-500: 166, 82%, 28%; /* hsl */
 
   --clr-neutral-100: 173, 72%, 82%; /* hsl */
@@ -36,6 +36,9 @@ button:active {
   background: hsl(var(--button-background));
   border: 1px solid hsl(var(--button-border));
 }
+button:focus-visible {
+  outline: 4px solid var(--clr-primary-100);
+}
 .button-encrypt {
   --button-color: var(--clr-neutral-100);
   --button-background: var(--clr-primary-500);
@@ -50,6 +53,9 @@ button:active {
   --button-color: var(--clr-primary-500);
   --button-background: var(--clr-neutral-100);
   --button-border: var(--clr-primary-500);
+}
+.button-copy:focus-visible {
+  outline: 3px solid hsl(var(--clr-primary-500), .4);
 }
 ::selection {
   background: var(--clr-neutral-400);
@@ -103,7 +109,7 @@ body {
   color: hsl(var(--clr-primary-500), .8);
 }
 .hero-textarea:focus {
-  outline: 1px solid var(--clr-primary-100);
+  outline: 2px solid var(--clr-primary-100);
 }
 .hero-textarea::selection {
   background: hsl(var(--clr-primary-500));
@@ -250,6 +256,10 @@ body {
   justify-content: center;
   gap: 3rem;
 }
+.social-networks a:focus-visible {
+  outline: 3px solid var(--clr-primary-100);
+  border-radius: .5rem;
+}
 .linkedin,
 .github {
   fill: hsl(var(--clr-primary-500));
@@ -310,9 +320,6 @@ body {
     display: grid;
     align-content: center;
     margin-bottom: 2.5rem;
-  }
-  .noresult {
-    height: calc(100% - 2rem);
   }
   .noresult-img {
     display: block;
